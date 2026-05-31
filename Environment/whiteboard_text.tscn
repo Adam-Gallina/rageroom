@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vj7eio7c1p76"]
+
+[ext_resource type="FontFile" uid="uid://d03d8agd2mvau" path="res://Fonts/PermanentMarker-Regular.ttf" id="1_fqw8l"]
+
+[node name="WhiteboardText" type="Label3D"]
+modulate = Color(0, 0, 0, 1)
+text = "Yeah this is a whiteboard. Get over it"
+font = ExtResource("1_fqw8l")
+font_size = 84
+outline_size = 0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwjjn7740igov"]
+
+[ext_resource type="Script" uid="uid://cpwe0bsfyjkde" path="res://Environment/room.gd" id="1_20sou"]
+[ext_resource type="PackedScene" uid="uid://c8qajva3f0toy" path="res://Environment/base_room.tscn" id="2_46515"]
+
+[node name="SmashDesk" type="Node3D"]
+script = ExtResource("1_20sou")
+
+[node name="BaseRoom" parent="." instance=ExtResource("2_46515")]
+
+[node name="WhiteboardText" parent="BaseRoom/Whiteboard" index="3"]
+transform = Transform3D(0.994083, 0.108624, 0, -0.108624, 0.994083, 0, 0, -4.65661e-10, 1, 1.73712, 1.30194, 0.0711026)
+text = "...but you would 
+get parried nerd"
+
+[editable path="BaseRoom"]
+[editable path="BaseRoom/Desk"]
+[editable path="BaseRoom/Desk/Speaker2/Speaker"]
+[editable path="BaseRoom/Desktop"]

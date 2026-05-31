@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btc1axq5w7ltt"]
+
+[ext_resource type="Script" uid="uid://bj0jfti3qmgjf" path="res://Environment/Props/smackable.gd" id="1_wbi7h"]
+[ext_resource type="PackedScene" uid="uid://beqvu2mjd1dlx" path="res://Environment/Props/Models/Whiteboard.glb" id="2_okw7y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmcks"]
+size = Vector3(7, 4, 0.2)
+
+[node name="Whiteboard" type="StaticBody3D"]
+script = ExtResource("1_wbi7h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.012)
+shape = SubResource("BoxShape3D_dmcks")
+
+[node name="Whiteboard2" parent="." instance=ExtResource("2_okw7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.012)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c73c5hwm0k3fs"]
+
+[ext_resource type="PackedScene" uid="uid://bg0pwo23n77tk" path="res://Effects/Star.glb" id="1_muobs"]
+[ext_resource type="Script" uid="uid://b37eatlyxe4kb" path="res://Effects/stars.gd" id="1_yo58c"]
+
+[node name="Stars" type="Node3D"]
+script = ExtResource("1_yo58c")
+SpinSpeed = 0.65
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74322, 0.436)
+
+[node name="Star" parent="Pivot" instance=ExtResource("1_muobs")]
+transform = Transform3D(-0.0228896, -0.0477914, -0.084806, 0.0150409, 0.0843363, -0.0515864, 0.0961761, -0.0245635, -0.012116, 0, 0, 1.17494)
+
+[node name="Cube_002" parent="Pivot/Star" index="0"]
+layers = 2
+cast_shadow = 0
+
+[node name="Star2" parent="Pivot" instance=ExtResource("1_muobs")]
+transform = Transform3D(-0.0228896, -0.0477914, -0.084806, 0.0150409, 0.0843363, -0.0515864, 0.0961761, -0.0245635, -0.012116, 1.35875, 0, -0.166293)
+
+[node name="Cube_002" parent="Pivot/Star2" index="0"]
+layers = 2
+cast_shadow = 0
+
+[node name="Star3" parent="Pivot" instance=ExtResource("1_muobs")]
+transform = Transform3D(-0.0228896, -0.0477914, -0.084806, 0.0150409, 0.0843363, -0.0515864, 0.0961761, -0.0245635, -0.012116, 0.0474386, 0, -1.21476)
+
+[node name="Cube_002" parent="Pivot/Star3" index="0"]
+layers = 2
+cast_shadow = 0
+
+[node name="Star4" parent="Pivot" instance=ExtResource("1_muobs")]
+transform = Transform3D(-0.0228896, -0.0477914, -0.084806, 0.0150409, 0.0843363, -0.0515864, 0.0961761, -0.0245635, -0.012116, -1.38674, 0, -0.0358385)
+
+[node name="Cube_002" parent="Pivot/Star4" index="0"]
+layers = 2
+cast_shadow = 0
+
+[editable path="Pivot/Star"]
+[editable path="Pivot/Star2"]
+[editable path="Pivot/Star3"]
+[editable path="Pivot/Star4"]

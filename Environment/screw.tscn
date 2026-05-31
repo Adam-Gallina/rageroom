@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4dgs8m7wadsv"]
+
+[ext_resource type="Script" uid="uid://dayvsbrlgvg5u" path="res://Environment/screw.gd" id="1_7p402"]
+[ext_resource type="PackedScene" uid="uid://c68lrq4rbpsnx" path="res://Environment/Props/Models/Screw.glb" id="2_0rp4p"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pooh0"]
+height = 0.0927124
+radius = 0.0439453
+
+[node name="Screw" type="RigidBody3D" node_paths=PackedStringArray("rb")]
+collision_layer = 3
+collision_mask = 17
+freeze = true
+script = ExtResource("1_7p402")
+rb = NodePath(".")
+ID = "Screw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.117e-09, -0.030619)
+shape = SubResource("CylinderShape3D_pooh0")
+
+[node name="Screw2" parent="." instance=ExtResource("2_0rp4p")]

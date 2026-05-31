@@ -1,0 +1,291 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtbk3drakgyv3"]
+
+[ext_resource type="Script" uid="uid://r8oek413pglv" path="res://game_manager.gd" id="1_gqbix"]
+[ext_resource type="PackedScene" uid="uid://hlg6r2gswkdf" path="res://UI/stage_transitions.tscn" id="2_oysan"]
+[ext_resource type="Script" uid="uid://cpwe0bsfyjkde" path="res://Environment/room.gd" id="3_sb2pt"]
+[ext_resource type="PackedScene" uid="uid://c8qajva3f0toy" path="res://Environment/base_room.tscn" id="4_0t07s"]
+[ext_resource type="PackedScene" uid="uid://btc1axq5w7ltt" path="res://Environment/Props/whiteboard.tscn" id="5_6qsgm"]
+[ext_resource type="FontFile" uid="uid://b5x0sqmsqivut" path="res://Fonts/XBANDRough.ttf" id="6_ooc2g"]
+[ext_resource type="Texture2D" uid="uid://bh0un756wdup4" path="res://UI/Arrow.png" id="7_2wwcf"]
+[ext_resource type="Script" uid="uid://bj0jfti3qmgjf" path="res://Environment/Props/smackable.gd" id="8_gqbix"]
+[ext_resource type="PackedScene" uid="uid://l35xj8a5782y" path="res://Player/Bat.glb" id="9_a6rn7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4on3e"]
+size = Vector3(2.02022, 1.94955, 0.595825)
+
+[node name="GameManager" type="Node3D" node_paths=PackedStringArray("_curr_room")]
+script = ExtResource("1_gqbix")
+_curr_room = NodePath("TutorialRooms/BaseRoom")
+
+[node name="ScreenTransitions" parent="." instance=ExtResource("2_oysan")]
+
+[node name="TutorialRooms" type="Node3D" parent="."]
+script = ExtResource("3_sb2pt")
+
+[node name="BaseRoom" parent="TutorialRooms" instance=ExtResource("4_0t07s")]
+script = ExtResource("3_sb2pt")
+
+[node name="Wall3" parent="TutorialRooms/BaseRoom/Walls" index="4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.48616, 0, 7)
+
+[node name="BatPivot" parent="TutorialRooms/BaseRoom/Player/CamParent" index="3"]
+transform = Transform3D(0.556673, 0.216353, -0.802064, -7.19346e-09, 0.96549, 0.260437, 0.830731, -0.144978, 0.537462, 0.842322, -0.730805, -0.825855)
+
+[node name="Bat" parent="TutorialRooms/BaseRoom/Player/CamParent/BatPivot" index="1"]
+visible = false
+
+[node name="MoveWhiteboard" parent="TutorialRooms" instance=ExtResource("5_6qsgm")]
+transform = Transform3D(0.998678, 0, -0.0514122, 0, 1, 0, 0.0514122, 0, 0.998678, -2.631, 0, 24.5864)
+collision_layer = 3
+collision_mask = 0
+ID = "Whiteboard"
+
+[node name="WhiteboardWarning" type="Node3D" parent="TutorialRooms/MoveWhiteboard"]
+
+[node name="Label3D" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.996425, -0.0844779, 0, 0.0844779, 0.996425, 0, 0, 0, 1, -1.46792, 3.09202, -5.21541e-07)
+text = "you"
+font = ExtResource("6_ooc2g")
+font_size = 144
+outline_size = 45
+
+[node name="Label3D2" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999616, -0.0277126, 0, 0.0277126, 0.999616, 0, 0, 0, 1, 0.341074, 3.17816, -8.38918e-09)
+text = "wouldn't"
+font = ExtResource("6_ooc2g")
+font_size = 100
+outline_size = 45
+
+[node name="Label3D3" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.995481, -0.0949593, 0, 0.0949593, 0.995481, 0, 0, 0, 1, -1.24412, 2.27786, -4.475e-07)
+text = "press
+"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D5" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999602, 0.0282008, 0, -0.0282008, 0.999602, 0, 0, 0, 1, 0.856927, 2.39447, -5.41098e-07)
+text = "wasd"
+font = ExtResource("6_ooc2g")
+font_size = 129
+outline_size = 45
+
+[node name="Label3D7" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.998459, 0.0554904, 0, -0.0554904, 0.998459, 0, 0, 0, 1, -1.13897, 1.69296, -1.20146e-06)
+text = "to"
+font = ExtResource("6_ooc2g")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D6" type="Label3D" parent="TutorialRooms/MoveWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999775, -0.0212212, 0, 0.0212212, 0.999775, 0, 0, 0, 1, 0.232574, 1.47092, 1.21421e-06)
+text = "move
+"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="LookWhiteboard" parent="TutorialRooms" instance=ExtResource("5_6qsgm")]
+transform = Transform3D(0.998678, 0, -0.0514122, 0, 1, 0, 0.0514122, 0, 0.998678, 3.9834, 0, 19.0842)
+collision_layer = 3
+collision_mask = 0
+ID = "Whiteboard"
+
+[node name="WhiteboardWarning" type="Node3D" parent="TutorialRooms/LookWhiteboard"]
+
+[node name="Label3D" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.996425, -0.0844779, 0, 0.0844779, 0.996425, 0, 0, 0, 1, -1.17895, 3.11652, -5.21541e-07)
+text = "you"
+font = ExtResource("6_ooc2g")
+font_size = 144
+outline_size = 45
+
+[node name="Label3D2" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999616, -0.0277126, 0, 0.0277126, 0.999616, 0, 0, 0, 1, 0.341074, 3.17816, -8.38918e-09)
+text = "would"
+font = ExtResource("6_ooc2g")
+font_size = 100
+outline_size = 45
+
+[node name="Label3D5" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.998641, -0.0521268, 0, 0.0521268, 0.998641, 0, 0, 0, 1, -0.843195, 2.44244, -5.41098e-07)
+text = "use"
+font = ExtResource("6_ooc2g")
+font_size = 129
+outline_size = 45
+
+[node name="Label3D3" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999925, 0.0122349, 0, -0.0122349, 0.999925, 0, 0, 0, 1, 0.938891, 2.44596, 1.9148e-06)
+text = "mouse
+"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D7" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.998459, 0.0554904, 0, -0.0554904, 0.998459, 0, 0, 0, 1, -1.78003, 1.72859, -1.20146e-06)
+text = "to"
+font = ExtResource("6_ooc2g")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D4" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.997629, 0.0688161, 0, -0.0688161, 0.997629, 0, 0, 4.65661e-10, 1, -0.607848, 1.70299, 2.09801e-07)
+text = "look"
+font = ExtResource("6_ooc2g")
+font_size = 160
+outline_size = 45
+
+[node name="Label3D6" type="Label3D" parent="TutorialRooms/LookWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999775, -0.0212212, 0, 0.0212212, 0.999775, 0, 0, 0, 1, 1.31077, 1.63196, 1.40606e-06)
+text = "around
+"
+font = ExtResource("6_ooc2g")
+font_size = 130
+outline_size = 45
+
+[node name="BatWhiteboard" parent="TutorialRooms" instance=ExtResource("5_6qsgm")]
+transform = Transform3D(0.998678, 0, -0.0514122, 0, 1, 0, 0.0514122, 0, 0.998678, -2.45258, 0, 14.2015)
+collision_layer = 3
+collision_mask = 0
+ID = "Whiteboard"
+
+[node name="WhiteboardWarning2" type="Node3D" parent="TutorialRooms/BatWhiteboard"]
+
+[node name="Label3D" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.999783, -0.0208029, 0, 0.0208029, 0.999783, 0, 0, 0, 1, -0.664401, 3.16014, -5.21541e-07)
+text = "you"
+font = ExtResource("6_ooc2g")
+font_size = 144
+outline_size = 45
+
+[node name="Label3D2" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.99786, 0.0653854, 0, -0.0653854, 0.99786, 0, 0, 0, 1, 1.02719, 3.19718, -8.38918e-09)
+text = "wouldn't"
+font = ExtResource("6_ooc2g")
+font_size = 100
+outline_size = 45
+
+[node name="Label3D3" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.995481, -0.0949593, 0, 0.0949593, 0.995481, 0, 0, 0, 1, -1.24412, 2.27786, -4.475e-07)
+text = "left"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D5" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.999602, 0.0282008, 0, -0.0282008, 0.999602, 0, 0, 0, 1, 0.5587, 2.5275, -5.41084e-07)
+text = "click"
+font = ExtResource("6_ooc2g")
+font_size = 129
+outline_size = 45
+
+[node name="Label3D7" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.998459, 0.0554904, 0, -0.0554904, 0.998459, 0, 0, 0, 1, 1.85411, 2.45156, -6.50121e-07)
+text = "to"
+font = ExtResource("6_ooc2g")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D6" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.999775, -0.0212212, 0, 0.0212212, 0.999775, 0, 0, 0, 1, -1.51758, 1.29782, 1.22166e-06)
+text = "steal"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D8" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.991406, -0.13082, 0, 0.13082, 0.991406, 0, 0, 0, 1, 0.119005, 1.82281, -2.07318e-06)
+text = "this"
+font = ExtResource("6_ooc2g")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D9" type="Label3D" parent="TutorialRooms/BatWhiteboard/WhiteboardWarning2"]
+transform = Transform3D(0.994714, 0.102688, 0, -0.102688, 0.994714, 0, 0, 0, 1, 0.656772, 1.188, -1.27219e-06)
+text = "bat"
+font = ExtResource("6_ooc2g")
+font_size = 129
+outline_size = 45
+
+[node name="Sprite3D" type="Sprite3D" parent="TutorialRooms/BatWhiteboard"]
+transform = Transform3D(-0.958225, -0.274824, 0.0792256, -0.272134, 0.96129, 0.0431716, 0.0880233, -0.0198081, 0.995922, 1.31003, 1.9887, 0.110687)
+pixel_size = 0.001
+texture = ExtResource("7_2wwcf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TutorialRooms/BatWhiteboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99674, 1.21257, 0.229583)
+collision_layer = 2
+script = ExtResource("8_gqbix")
+ID = "Screwdriver"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialRooms/BatWhiteboard/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45471, 0.296064, -0.202082)
+shape = SubResource("BoxShape3D_4on3e")
+
+[node name="Bat2" parent="TutorialRooms/BatWhiteboard/StaticBody3D" instance=ExtResource("9_a6rn7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AttackWhiteboard" parent="TutorialRooms" instance=ExtResource("5_6qsgm")]
+transform = Transform3D(0.998678, 0, -0.0514122, 0, 1, 0, 0.0514122, 0, 0.998678, 0.411189, 0, 11.7249)
+collision_layer = 3
+collision_mask = 0
+ID = "Whiteboard"
+
+[node name="WhiteboardWarning" type="Node3D" parent="TutorialRooms/AttackWhiteboard"]
+
+[node name="Label3D" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.996425, -0.0844779, 0, 0.0844779, 0.996425, 0, 0, 0, 1, -1.46792, 3.09202, -5.21541e-07)
+text = "you"
+font = ExtResource("6_ooc2g")
+font_size = 144
+outline_size = 45
+
+[node name="Label3D2" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999616, -0.0277126, 0, 0.0277126, 0.999616, 0, 0, 0, 1, 0.341074, 3.17816, -8.38918e-09)
+text = "wouldn't"
+font = ExtResource("6_ooc2g")
+font_size = 100
+outline_size = 45
+
+[node name="Label3D3" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.995481, -0.0949593, 0, 0.0949593, 0.995481, 0, 0, 0, 1, -1.24412, 2.27786, -4.475e-07)
+text = "swing
+"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D5" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999602, 0.0282008, 0, -0.0282008, 0.999602, 0, 0, 0, 1, 0.856927, 2.39447, -5.41098e-07)
+text = "with"
+font = ExtResource("6_ooc2g")
+font_size = 129
+outline_size = 45
+
+[node name="Label3D7" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.998459, 0.0554904, 0, -0.0554904, 0.998459, 0, 0, 0, 1, -1.14966, 1.5006, -1.20152e-06)
+text = "left"
+font = ExtResource("6_ooc2g")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D6" type="Label3D" parent="TutorialRooms/AttackWhiteboard/WhiteboardWarning"]
+transform = Transform3D(0.999775, -0.0212212, 0, 0.0212212, 0.999775, 0, 0, 0, 1, 0.503558, 1.47667, 1.21421e-06)
+text = "click
+"
+font = ExtResource("6_ooc2g")
+font_size = 170
+outline_size = 45
+
+[connection signal="smacked" from="TutorialRooms/BatWhiteboard/StaticBody3D" to="TutorialRooms/BaseRoom/Player/CamParent/BatPivot/Bat" method="show"]
+[connection signal="smacked" from="TutorialRooms/BatWhiteboard/StaticBody3D" to="TutorialRooms/BatWhiteboard/StaticBody3D" method="queue_free"]
+
+[editable path="TutorialRooms/BaseRoom"]
+[editable path="TutorialRooms/BaseRoom/Desk"]
+[editable path="TutorialRooms/BaseRoom/Desk/Speaker2/Speaker"]
+[editable path="TutorialRooms/BaseRoom/Desktop"]
+[editable path="TutorialRooms/BaseRoom/Player"]
+[editable path="TutorialRooms/BaseRoom/Player/CamParent/BatPivot/Bat"]
+[editable path="TutorialRooms/BaseRoom/Player/CamParent/BatPivot/Screwdriver"]

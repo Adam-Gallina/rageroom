@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhkjk1467kpry"]
+
+[ext_resource type="Texture2D" uid="uid://bdao6r1rsy82q" path="res://Effects/Dust.png" id="1_753km"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvbfe"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_753km")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_j6xr1"]
+material = SubResource("StandardMaterial3D_hvbfe")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Curve" id="Curve_643s2"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.414773, 1), 0.0, 0.0, 0, 0, Vector2(0.477273, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_bghug"]
+offsets = PackedFloat32Array(0, 0.92, 1)
+colors = PackedColorArray(0.174144, 0.136923, 0.0424069, 1, 0.605088, 0.577064, 0.520573, 1, 0.642562, 0.615337, 0.562152, 1)
+
+[node name="Dust" type="CPUParticles3D"]
+cast_shadow = 0
+emitting = false
+amount = 40
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_j6xr1")
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_max = 1.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_643s2")
+color = Color(1, 1, 1, 0.545098)
+color_initial_ramp = SubResource("Gradient_bghug")

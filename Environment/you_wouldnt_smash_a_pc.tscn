@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://nqawl51yrgst"]
+
+[ext_resource type="FontFile" uid="uid://b5x0sqmsqivut" path="res://Fonts/XBANDRough.ttf" id="1_lrpyj"]
+
+[node name="WhiteboardWarning" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.955916, -0.29364, 0, 0.29364, 0.955916, 0, 0, 0, 1, -2.69386, 3.05705, 0)
+text = "you"
+font = ExtResource("1_lrpyj")
+font_size = 144
+outline_size = 45
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(0.992161, -0.12497, 0, 0.12497, 0.992161, 0, 0, 0, 1, -1.117, 3.29444, 0)
+text = "wouldn't"
+font = ExtResource("1_lrpyj")
+font_size = 100
+outline_size = 45
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(0.989644, -0.143544, 0, 0.143544, 0.989644, 0, 0, 0, 1, -2.28333, 2.26206, 0)
+text = "smash
+"
+font = ExtResource("1_lrpyj")
+font_size = 170
+outline_size = 45
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(0.996745, -0.0806164, 0, 0.0806164, 0.996745, 0, 0, 0, 1, -0.935116, 2.71348, 0)
+text = "a"
+font = ExtResource("1_lrpyj")
+font_size = 110
+outline_size = 45
+
+[node name="Label3D5" type="Label3D" parent="."]
+transform = Transform3D(0.996596, -0.0824429, 0, 0.0824429, 0.996596, 0, 0, 0, 1, 0.64418, 2.70973, 0)
+text = "computer"
+font = ExtResource("1_lrpyj")
+font_size = 129
+outline_size = 45

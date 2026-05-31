@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4a5u0x5hj5mg"]
+
+[ext_resource type="Script" uid="uid://cpwe0bsfyjkde" path="res://Environment/room.gd" id="1_voyb3"]
+[ext_resource type="PackedScene" uid="uid://c8qajva3f0toy" path="res://Environment/base_room.tscn" id="2_kfa6e"]
+[ext_resource type="PackedScene" uid="uid://vj7eio7c1p76" path="res://Environment/whiteboard_text.tscn" id="3_t4nx8"]
+[ext_resource type="Texture2D" uid="uid://bh0un756wdup4" path="res://UI/Arrow.png" id="4_kfa6e"]
+[ext_resource type="Script" uid="uid://dcd28nwl6sfwv" path="res://Environment/Props/tattleable.gd" id="4_t34sg"]
+[ext_resource type="PackedScene" uid="uid://6urbm4ec8eqd" path="res://Player/Screwdriver.glb" id="5_3it57"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t4nx8"]
+size = Vector3(0.976227, 1.12219, 0.595825)
+
+[node name="SmashDesk" type="Node3D"]
+script = ExtResource("1_voyb3")
+
+[node name="BaseRoom" parent="." instance=ExtResource("2_kfa6e")]
+
+[node name="WhiteboardText" parent="BaseRoom/Whiteboard" index="3"]
+transform = Transform3D(0.999833, -0.0182953, 0.000415489, 0.0182976, 0.999811, -0.00652733, -0.000295985, 0.00653384, 0.999979, -0.860217, 1.43551, 0.204818)
+text = "Some moron keeps 
+smashing desks"
+font_size = 30
+
+[node name="WhiteboardText2" parent="BaseRoom/Whiteboard" index="4" instance=ExtResource("3_t4nx8")]
+transform = Transform3D(0.999833, -0.0182953, 0.000415489, 0.0182976, 0.999811, -0.00652733, -0.000295982, 0.00653384, 0.999979, 0.284742, 0.958155, 0.145876)
+text = "Computers are 
+all ok luckily"
+font_size = 30
+
+[node name="WhiteboardText3" parent="BaseRoom/Whiteboard" index="5" instance=ExtResource("3_t4nx8")]
+transform = Transform3D(0.999833, -0.0182953, 0.0004155, 0.0182976, 0.999811, -0.00652733, -0.000295974, 0.00653384, 0.999979, 2.6869, 2.03718, 0.0222154)
+text = "Screwdriver to
+repair desks"
+font_size = 30
+
+[node name="Sprite3D" type="Sprite3D" parent="BaseRoom/Whiteboard/WhiteboardText3"]
+transform = Transform3D(0.640947, 0.763435, 0.0797074, 0.762496, -0.645193, 0.0482212, -0.0882405, -0.0298694, 0.995651, -0.288787, -0.580877, 0.0180278)
+pixel_size = 0.001
+texture = ExtResource("4_kfa6e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67579, 1.21257, -5.68941)
+collision_layer = 2
+script = ExtResource("4_t34sg")
+ID = "Screwdriver"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.281631, 0.333219, -0.202087)
+shape = SubResource("BoxShape3D_t4nx8")
+
+[node name="Screwdriver2" parent="StaticBody3D" instance=ExtResource("5_3it57")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[editable path="BaseRoom"]
+[editable path="BaseRoom/Desk"]
+[editable path="BaseRoom/Desk/Speaker2/Speaker"]
+[editable path="BaseRoom/Desktop"]

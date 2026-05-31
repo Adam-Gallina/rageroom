@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpcb0gfltiipl"]
+
+[ext_resource type="Texture2D" uid="uid://bs7qach7qcy33" path="res://Effects/Splinter.png" id="1_yfu5w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cxj6"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_yfu5w")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_6m0dh"]
+material = SubResource("StandardMaterial3D_3cxj6")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Curve" id="Curve_643s2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.244318, 1), 0.0, 0.0, 0, 0, Vector2(0.909091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.35056, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_bghug"]
+colors = PackedColorArray(0.214876, 0.176136, 0.0777623, 1, 0.690082, 0.554821, 0.290581, 1)
+
+[node name="Splinters" type="CPUParticles3D"]
+cast_shadow = 0
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_6m0dh")
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 75.0
+gravity = Vector3(0, -7.5, 0)
+initial_velocity_max = 2.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_643s2")
+color_initial_ramp = SubResource("Gradient_bghug")

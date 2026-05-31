@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbo43ovo1sx83"]
+
+[ext_resource type="Script" uid="uid://cpwe0bsfyjkde" path="res://Environment/room.gd" id="1_b5d58"]
+[ext_resource type="PackedScene" uid="uid://c8qajva3f0toy" path="res://Environment/base_room.tscn" id="1_m58cm"]
+
+[node name="SmashDesk" type="Node3D"]
+script = ExtResource("1_b5d58")
+
+[node name="BaseRoom" parent="." instance=ExtResource("1_m58cm")]
+
+[node name="WhiteboardText" parent="BaseRoom/Whiteboard" index="3"]
+transform = Transform3D(0.994083, 0.108624, 0, -0.108624, 0.994083, 0, 0, -4.65661e-10, 1, 1.73712, 1.30194, 0.0711026)
+text = "...but you would 
+smash a monitor"
+
+[editable path="BaseRoom"]
