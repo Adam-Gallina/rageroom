@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpcb0gfltiipl"]
+[gd_scene format=3 uid="uid://dpcb0gfltiipl"]
 
 [ext_resource type="Texture2D" uid="uid://bs7qach7qcy33" path="res://Effects/Splinter.png" id="1_yfu5w"]
 
@@ -8,6 +8,8 @@ cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_yfu5w")
 billboard_keep_scale = true
+use_z_clip_scale = true
+z_clip_scale = 0.75
 
 [sub_resource type="QuadMesh" id="QuadMesh_6m0dh"]
 material = SubResource("StandardMaterial3D_3cxj6")
@@ -20,7 +22,7 @@ point_count = 4
 [sub_resource type="Gradient" id="Gradient_bghug"]
 colors = PackedColorArray(0.214876, 0.176136, 0.0777623, 1, 0.690082, 0.554821, 0.290581, 1)
 
-[node name="Splinters" type="CPUParticles3D"]
+[node name="Splinters" type="CPUParticles3D" unique_id=1387490562]
 cast_shadow = 0
 emitting = false
 amount = 30

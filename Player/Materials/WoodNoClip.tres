@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fnsj7dlxn4tm"]
+
+[ext_resource type="Texture2D" uid="uid://dg5ybb4l2002l" path="res://Player/Bat_Wood021_4K-JPG_Color.jpg" id="1_62g81"]
+
+[resource]
+resource_name = "Wood"
+cull_mode = 2
+albedo_texture = ExtResource("1_62g81")
+roughness = 0.5
+use_z_clip_scale = true
+z_clip_scale = 0.5

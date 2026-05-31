@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bps1fqlqn4xtu"]
+
+[ext_resource type="Texture2D" uid="uid://845m7dd2j8sg" path="res://Player/Screwdriver_Metal032_1K-JPG_Color.jpg" id="1_xvow5"]
+
+[resource]
+resource_name = "Metal"
+cull_mode = 2
+albedo_texture = ExtResource("1_xvow5")
+metallic = 1.0
+roughness = 0.5

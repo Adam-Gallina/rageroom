@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhkjk1467kpry"]
+[gd_scene format=3 uid="uid://dhkjk1467kpry"]
 
 [ext_resource type="Texture2D" uid="uid://bdao6r1rsy82q" path="res://Effects/Dust.png" id="1_753km"]
 
@@ -9,6 +9,8 @@ vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_753km")
 billboard_mode = 1
 billboard_keep_scale = true
+use_z_clip_scale = true
+z_clip_scale = 0.75
 
 [sub_resource type="QuadMesh" id="QuadMesh_j6xr1"]
 material = SubResource("StandardMaterial3D_hvbfe")
@@ -22,7 +24,7 @@ point_count = 4
 offsets = PackedFloat32Array(0, 0.92, 1)
 colors = PackedColorArray(0.174144, 0.136923, 0.0424069, 1, 0.605088, 0.577064, 0.520573, 1, 0.642562, 0.615337, 0.562152, 1)
 
-[node name="Dust" type="CPUParticles3D"]
+[node name="Dust" type="CPUParticles3D" unique_id=2061658943]
 cast_shadow = 0
 emitting = false
 amount = 40

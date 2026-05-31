@@ -216,7 +216,7 @@ func _input(event):
 func _reset_cam(duration:float=.5):
 	var start_p = pitch
 	var start_y = yaw
-	var end_y = yaw + PI
+	var end_y = yaw# + PI
 	var remaining = duration
 	while remaining > 0:
 		remaining -= get_process_delta_time()

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://e351fsk28xd6"]
+
+[ext_resource type="Texture2D" uid="uid://cp4c5d4eks67e" path="res://Player/Screwdriver_Plastic015B_1K-JPG_Color.jpg" id="1_sckno"]
+[ext_resource type="Texture2D" uid="uid://dxeqlphw3gcd" path="res://Player/Screwdriver_Plastic015B_1K-JPG_NormalDX.jpg" id="2_erqsk"]
+
+[resource]
+resource_name = "Plastic"
+cull_mode = 2
+albedo_texture = ExtResource("1_sckno")
+metallic = 0.52727276
+roughness = 0.8409091
+normal_enabled = true
+normal_texture = ExtResource("2_erqsk")
+use_z_clip_scale = true
+z_clip_scale = 0.5

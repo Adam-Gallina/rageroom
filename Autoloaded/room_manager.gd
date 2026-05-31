@@ -76,7 +76,9 @@ func ChangeToRoom(room:LoadedRoom, faint_anim=true) -> Room:
 
 		var n = await _curr_player.anim_complete
 		if n == PlayerController.SwingAnim:
+			print('waiting for player anim')
 			await _curr_player.anim_complete
+			print('done')
 
 	_curr_room = room
 	spawn_room.emit(next_room)
